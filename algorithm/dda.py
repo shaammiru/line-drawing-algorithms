@@ -21,12 +21,14 @@ def dda_algorithm(x0: float, y0: float, x1: float, y1: float) -> Dict[str, any]:
 
         if x % 0.5 == 0:
             x_round = math.ceil(x)
+        else:
+            x_round = round(x)
 
         if y % 0.5 == 0:
             y_round = math.ceil(y)
+        else:
+            y_round = round(y)
 
-        x_round = round(x)
-        y_round = round(y)
         rounded_coor.append({"x": x_round, "y": y_round})
 
     return {
@@ -36,7 +38,7 @@ def dda_algorithm(x0: float, y0: float, x1: float, y1: float) -> Dict[str, any]:
         "x_increment": x_increment,
         "y_increment": y_increment,
         "coor": coor,
-        "roundedCoor": rounded_coor,
+        "rounded_coor": rounded_coor,
     }
 
 

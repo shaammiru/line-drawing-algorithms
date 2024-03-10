@@ -44,8 +44,8 @@ def dda_page():
             columns=["∆x", "Δy", "Step", "X Increment", "Y Increment"],
         )
 
-        round_x = [i["x"] for i in result["roundedCoor"]]
-        round_y = [i["y"] for i in result["roundedCoor"]]
+        round_x = [i["x"] for i in result["rounded_coor"]]
+        round_y = [i["y"] for i in result["rounded_coor"]]
         formatted_xy = [f"({i[0]}, {i[1]})" for i in list(zip(round_x, round_y))]
 
         coors = pd.DataFrame(
