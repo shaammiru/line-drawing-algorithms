@@ -1,6 +1,7 @@
 import re
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 from algorithm.dda import dda_algorithm as dda
 from algorithm.bresenham import bres_algorithm as bres
 
@@ -61,6 +62,27 @@ def dda_page():
         st.dataframe(data)
         st.subheader("Coors")
         st.dataframe(coors)
+
+        round_x.insert(0, start[0])
+        round_y.insert(0, start[1])
+
+        plt.figure(figsize=(8, 6))
+        plt.plot(
+            round_x,
+            round_y,
+            marker="o",
+            linestyle="-",
+        )
+        plt.title("Coordinate Line")
+        plt.xlabel("X")
+        plt.ylabel("Y")
+        plt.grid(True)
+        plt.xticks(range(int(min(round_x)), int(max(round_x)) + 1))
+        plt.yticks(range(int(min(round_y)), int(max(round_y)) + 1))
+        plt.tight_layout()
+
+        st.write("Coordinates")
+        st.pyplot(plt)
 
 
 def bresenham_page():
@@ -140,6 +162,27 @@ def bresenham_page():
         st.dataframe(data)
         st.subheader("Coors")
         st.dataframe(coors)
+
+        x_coors.insert(0, start[0])
+        y_coors.insert(0, start[1])
+
+        plt.figure(figsize=(8, 6))
+        plt.plot(
+            x_coors,
+            y_coors,
+            marker="o",
+            linestyle="-",
+        )
+        plt.title("Coordinate Line")
+        plt.xlabel("X")
+        plt.ylabel("Y")
+        plt.grid(True)
+        plt.xticks(range(int(min(x_coors)), int(max(x_coors)) + 1))
+        plt.yticks(range(int(min(y_coors)), int(max(y_coors)) + 1))
+        plt.tight_layout()
+
+        st.write("Coordinates")
+        st.pyplot(plt)
 
 
 def main():
